@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #f1f8e9 100%);
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    margin: 0 0 10px 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 30px 0;
+    color: #00796b;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+h2 {
+    border-bottom: 2px solid #00796b;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    color: #004d40;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Glassmorphism Sections */
+.section {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Lists & Badges */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    background: rgba(255,255,255,0.4);
+    padding: 10px 15px;
+    margin: 8px 0;
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+ul li:hover {
+    background: rgba(255,255,255,0.6);
+    transform: translateX(5px);
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #00796b;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #00796b;
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Images / Plots */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Trend Plots Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.plot-card {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plot-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.plot-card h4 {
+    color: #00796b;
+    margin-bottom: 12px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #004d40;
+    font-size: 0.9rem;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <div class="container">
+
+        <!-- Dataset Info -->
+        <div class="section">
+            <h2>Dataset Information</h2>
+            <p><span class="badge">Shape</span> {{ shape }}</p>
+            <p><span class="badge">Columns</span> {{ columns | join(', ') }}</p>
+        </div>
+
+        <!-- Missing Data -->
+        <div class="section">
+            <h2>Missing Data</h2>
+            {% if missing %}
+                <ul>
+                    {% for col, count in missing.items() %}
+                        <li>{{ col }}: {{ count }} missing ({{ missing_percent[col] }}%)</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No missing data found.</p>
+            {% endif %}
+        </div>
+
+        <!-- Duplicates -->
+        <div class="section">
+            <h2>Duplicate Rows</h2>
+            {% if duplicates %}
+                <p>{{ duplicates }} duplicate rows found.</p>
+            {% else %}
+                <p>No duplicate rows found.</p>
+            {% endif %}
+        </div>
+
+        <!-- Invalid Dates -->
+        <div class="section">
+            <h2>Invalid Dates</h2>
+            {% if invalid_dates %}
+                <ul>
+                    {% for issue in invalid_dates %}
+                        <li>{{ issue }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No invalid dates found.</p>
+            {% endif %}
+        </div>
+
+        <!-- Insights -->
+        <div class="section">
+            <h2>AI-Driven Insights</h2>
+            {% if insights %}
+                <ul>
+                    {% for insight in insights %}
+                        <li>{{ insight }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No insights generated.</p>
+            {% endif %}
+        </div>
+
+        <!-- Outliers -->
+        <div class="section">
+            <h2>Outlier Detection</h2>
+            {% if total_outliers %}
+                <p>Total outliers detected: {{ total_outliers }}</p>
+                <ul>
+                    {% for col, count in outlier_counts.items() %}
+                        <li>{{ col }}: {{ count }} outliers</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No outliers detected.</p>
+            {% endif %}
+        </div>
+
+        <!-- Heatmap -->
+        {% if heatmap_file %}
+        <div class="section">
+            <h2>Correlation Heatmap</h2>
+            <img src="{{ url_for('static', filename='images/' ~ heatmap_file) }}" alt="Heatmap">
+        </div>
+        {% endif %}
+
+        <!-- Trend Plots -->
+        <div class="section">
+            <h2>Trend Plots</h2>
+            {% if trend_plots %}
+                <div class="grid">
+                    {% for col, file in trend_plots.items() %}
+                        <div class="plot-card">
+                            <h4>{{ col }} Trend</h4>
+                            <img src="{{ url_for('static', filename='images/' ~ file) }}" alt="{{ col }} trend plot">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No trend plots available.</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <footer>
+        DATA SCULPTOR – AI-Driven Analysis Tool
+    </footer>
+</body>
+</html>
