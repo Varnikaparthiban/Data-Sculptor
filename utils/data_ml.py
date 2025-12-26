@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LinearRegression
 
 def train_model(df, target_col):
     """
@@ -51,3 +52,24 @@ def train_model(df, target_col):
         # Fallback for very small datasets or errors
         print(f"ML Training Error: {e}")
         return task_type, 0.0
+
+def generate_forecast(df, date_col, value_col, periods=10):
+    """Simple linear trend forecasting for time-series data."""
+    df_temp = df[[date_col, value_col]].copy()
+    df_temp[date_col] = pd.to_datetime(df_temp[date_col])
+    df_temp = df_temp.sort_values(date_col)
+    
+    # Convert dates to ordinal for regression
+    X = np.array(range(len(df_temp))).reshape(-1, 1)
+    y = df_temp[value_col].values
+    
+    model = LinearRegression()
+    model.fit(X, y)
+    
+    # Predict future
+    future_X = np.array(range(len(df_temp), len(df_temp) + periods)).reshape(-1, 1)
+    future_y = model.predict(future_X)
+    
+    last_date = df_temp[date_col].max()
+    future_dates = pd.date_range(start=last_date, periods=periods + 1, freq='D')[1:]
+    return pd.DataFrame({date_col: future_dates, value_col: future_y})

@@ -144,7 +144,7 @@ venv\Scripts\activate         # Windows
 
 Ensure you have file containing:
 
-flask
+streamlit
 pandas
 numpy
 matplotlib
@@ -155,7 +155,7 @@ pip install -r requirements.txt
 ```
 4️⃣ Run the Application
 ```
-python app.py
+streamlit run streamlit_app.py
 ```
 # program:
 ```
@@ -289,6 +289,3 @@ Wikipedia: https://en.wikipedia.org/wiki/Object-modeling_technique (Wikipedia)
 
 
 ●Uppala Sai Sudeep, Kandra Narasimha Naidu, Pulagam Sai Girish, Tatineni Naga Nikesh, Ch Sunanda. “Brain Tumor Classification using a Support Vector Machine.” International Journal of Computer Applications, vol. 184, no. 28 (Sep 2022), pp. 15-17. DOI:10.5120/ijca2022922347. Available at: https://ijcaonline.org/archives/volume184/number28/32492-2022922347/ (ijcaonline.org)
-
-
-
