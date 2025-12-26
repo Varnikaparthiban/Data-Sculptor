@@ -1,165 +1,120 @@
+# DATA SCULPTOR-AI DRIVEN PREPROCESSING AND INSIGHT EXTRACTION TOOL
+#  BY: DHIVYA DHARSHINI B,VARNIKA P, ABINAYA A
+## INTRODUCTION :
 
-# DATA-SCULPTOR-AI-Driven-Preprocessing-and-Insight-Extraction-Tool
-## 1. Introduction
-
-DATA SCULPTOR is an intelligent, end-to-end AI-driven data preprocessing and insight extraction web application developed using Flask. The tool is designed to automate critical data preparation tasks and provide meaningful insights without requiring extensive programming knowledge from the user. By simplifying the preprocessing pipeline, DATA SCULPTOR enables users to focus on decision-making and analytical interpretation rather than manual data handling.
-The application integrates data cleaning, outlier detection, statistical insight generation, and visual analytics into a unified workflow. Its modular and scalable architecture ensures that the system is not limited to exploratory analysis but is also ready for future expansion into machine learning, predictive analytics, and intelligent decision support systems.
-Built using Python, Pandas, NumPy, Matplotlib, and Flask, DATA SCULPTOR emphasizes accuracy, usability, and scalability, making it suitable for academic projects, data analytics coursework, research experimentation, and business intelligence applications.
-
-## 2. Statement of the Problem
-
-### Raw datasets often contain:
-
-Most real-world datasets suffer from several quality issues such as:
-
-Missing or null values
-
-Duplicate records
-
-Outliers and anomalies
-
-Inconsistent data formats
-
-Invalid or corrupted entries
-
-These issues significantly affect the reliability of statistical analysis and machine learning models. Manual preprocessing requires technical expertise, significant time investment, and careful validation, which may not be feasible for non-technical users or time-sensitive projects.
-
-There is a need for an automated, user-friendly, and reliable system that can preprocess datasets, extract insights, detect anomalies, and visualize trends efficiently.
-
-## 3. Purpose of the Project
-
-The primary purpose of DATA SCULPTOR is to:
-
-Automate essential data preprocessing tasks
-
-Reduce manual effort in data cleaning
-
-Provide quick statistical insights into datasets
-
-Identify outliers that impact data quality
-
-Present results through intuitive visualizations
-
-Support non-technical users in data analysis
-
-The system aims to bridge the gap between raw data and actionable intelligence.
-
-## 4. Features Overview
-### Home Page
-The home page provides a clean and intuitive interface where users can:
-
-Upload CSV datasets
-
-Initiate the preprocessing and analysis pipeline
-
-Navigate seamlessly to insight and visualization outputs
-
-The design prioritizes clarity, simplicity, and ease of use, ensuring accessibility for users with minimal technical background.
-
-## Automated Data Preprocessing
-This module automatically prepares the uploaded dataset for analysis.
-
-Key Capabilities
-
-Handling missing and null values
-
-Removing duplicate records
-
-Standardizing column formats
-
-Identifying invalid date entries
-
-The preprocessing pipeline ensures that the dataset is clean, structured, consistent, and analysis-ready, forming a reliable foundation for further analytics.
+In today’s data-driven world, organizations and individuals generate large volumes of data from various sources. However, raw data is often incomplete, inconsistent, and unstructured, making it difficult to analyze directly. 
+Data preprocessing plays a crucial role in transforming raw data into a clean and usable format, but it is usually a time-consuming and complex task that requires technical expertise.
 
 
-## AI-Driven Insight Extraction
+Data Sculptor – AI Driven Preprocessing and Insight Extraction Tool is designed to address these challenges by providing an automated and intelligent solution for data cleaning, preprocessing, and analysis.
+The system leverages artificial intelligence and machine learning techniques to handle missing values, duplicates, outliers, and inconsistencies while automatically extracting meaningful insights such as trends, correlations, and feature importance. 
+By offering a user-friendly, web-based interface with visual outputs, Data Sculptor simplifies the data analytics process and makes it accessible to both technical and non-technical users.
+The tool aims to improve efficiency, accuracy, and decision-making by bridging the gap between raw data and actionable intelligence.
 
-After preprocessing, the system extracts meaningful statistical insights.
+## FEATURES OVERVIEW :
+1) Automated Data Acquisition
+Supports importing datasets from multiple sources such as CSV files, Excel sheets, databases, and APIs.
 
-Insights Generated
+2) Intelligent Data Preprocessing
+Automatically handles missing values, removes duplicates, detects outliers, and fixes inconsistencies to improve data quality.
 
-Dataset dimensions (rows and columns)
+3) Data Transformation & Feature Engineering
+Performs normalization, encoding, scaling, and feature selection to prepare data for accurate analysis.
 
-Summary statistics such as mean, median, minimum, and maximum
+4) AI-Driven Insight Extraction
+Applies machine learning techniques to identify trends, correlations, regression patterns, and feature importance.
 
-Column-wise numeric distributions
+5) Recommendation System
+Suggests optimal preprocessing and transformation strategies based on dataset characteristics.
 
-Correlation indicators among numerical features
+6) Interactive Data Visualization
+Presents insights through easy-to-understand charts, graphs, and dashboards for better interpretation.
 
-These insights are presented in a human-readable format, allowing users to understand the dataset’s behavior quickly and accurately.
-## Outlier Detection System
+7) User-Friendly Web Interface
+Simple and intuitive UI that allows users to upload datasets, trigger analysis, and view results without coding.
+
+8) Real-Time Processing Support
+Enables fast and efficient analysis for moderately sized datasets.
+
+9) Secure Data Handling
+Incorporates data anonymization and access control to protect sensitive information.
+
+10) Scalable & Modular Architecture
+Designed for easy expansion and seamless integration with machine learning pipelines.
+
+## PROJECT STRUCTURE :
+
+<img width="732" height="551" alt="image" src="https://github.com/user-attachments/assets/594869ee-f916-4243-ba7c-c8bfd556900d" />
 
 
-Identifies anomalous values that may affect data quality.
+## INSTALLATION AND SETUP :
 
-Techniques Used
+### Clone or Download the Repository
 
-Statistical thresholding
-
-Interquartile Range (IQR) method
-
-Numeric feature scanning
-
-## Data Visualization Engine
-
-Automatically generates visual analytics.
-
-Visual Outputs
-
-Correlation heatmaps
-
-Time-based trend plots
-
-Numeric feature trends
-
-## 5. AI-Ready Architecture
-
-DATA SCULPTOR is designed for scalability.
-
-Modular utility files (utils/)
-
-Independent preprocessing and analysis functions
-
-Ready for ML model integration:
-
-Classification
-
-Regression
-
-Clustering
-# Installation & Setup:
-1️⃣ Clone the Repository
+```bash
+git clone https://github.com/dhivyadharshini2006/Data-Sculptor
+cd Data-Sculptor
 ```
-git clone https://github.com/ABINAYA-27-76/DATA-SCULPTOR.git
-cd DATA-SCULPTOR
 
-```
-2️⃣ Create a Virtual Environment
-```
+---
+
+### Create a Virtual Environment (Recommended)
+
+```bash
 python -m venv venv
-source venv/bin/activate      # macOS/Linux
-venv\Scripts\activate         # Windows
 ```
-3️⃣ Install Dependencies
 
-Ensure you have file containing:
+Activate the virtual environment:
 
-streamlit
+* **Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+* **macOS / Linux**
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+### Install Dependencies
+
+Ensure a `requirements.txt` file is present with the following libraries:
+
+```
+flask
 pandas
 numpy
+scikit-learn
 matplotlib
 seaborn
-#### Install with:
 ```
+
+### Install all dependencies using:
+
+```bash
 pip install -r requirements.txt
 ```
-4️⃣ Run the Application
+
+---
+
+### Run the Application
+
+```bash
+python app.py
 ```
-streamlit run streamlit_app.py
+
+Once the server starts, open your browser and navigate to:
+
 ```
-# program:
+http://127.0.0.1:5000/
 ```
-app py
+
+## PROGRAM :
+```python
 
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
@@ -244,48 +199,60 @@ def analyze():
 if __name__ == '__main__':
     app.run(debug=True)
 ```
-## UI Highlights
 
-Clean, minimal web-based interface
+## CORE CALCULATIONS :
 
-Simple dataset upload workflow
+| **Process**            | **Technique Used**                 | **Purpose**                                         |
+| ---------------------- | ---------------------------------- | --------------------------------------------------- |
+| Missing Value Handling | Mean / Median / Mode Imputation    | Fills missing data to maintain dataset completeness |
+| Duplicate Removal      | Row Similarity Check               | Eliminates redundant records to reduce bias         |
+| Outlier Detection      | IQR / Z-Score Method               | Identifies and handles extreme values               |
+| Data Normalization     | Min–Max Scaling / Standardization  | Brings numerical features to a common scale         |
+| Categorical Encoding   | Label Encoding / One-Hot Encoding  | Converts categorical data into numerical form       |
+| Correlation Analysis   | Pearson Correlation Coefficient    | Identifies relationships between variables          |
+| Regression Analysis    | Linear Regression                  | Analyzes dependency between variables               |
+| Feature Importance     | ML-based Importance Scores         | Determines influential features                     |
+| Trend Detection        | Time-Series / Statistical Analysis | Identifies patterns and trends in data              |
+| Data Visualization     | Charts and Graphs                  | Presents insights in an interpretable format        |
 
-Automated analytics without coding
+## OUTPUT :
+### UPLOADING DATASET :
 
-Visual outputs rendered instantly
+<img width="1600" height="908" alt="image" src="https://github.com/user-attachments/assets/ce439db4-ecb5-43f6-a2d0-be5ff6345538" />
 
-Modular backend for easy upgrades
-## Interface Preview:
+### HEATMAP :
 
-### dataset information:
-![WhatsApp Image 2025-12-23 at 9 41 41 PM](https://github.com/user-attachments/assets/d8799cd1-865e-4311-8a3a-aa08a1375181)
-### AI-driven insigths:
-![WhatsApp Image 2025-12-23 at 9 43 05 PM](https://github.com/user-attachments/assets/8de3d62e-1203-4985-a730-f7d4de1fc649)
-### Correlation heatmap:
-![WhatsApp Image 2025-12-23 at 9 43 12 PM](https://github.com/user-attachments/assets/f3b41be6-90fb-4aa5-a618-91d3c255d2a9)
-### Trend plots:
-![WhatsApp Image 2025-12-23 at 9 43 15 PM](https://github.com/user-attachments/assets/370f00a4-ee55-4884-a73a-82d3747e62d2)
+<img width="942" height="827" alt="image" src="https://github.com/user-attachments/assets/352db3ce-fd79-47e3-ad01-76a38f110e5d" />
 
+### TRENDS :
 
-## Future Enhancements:
+<img width="611" height="670" alt="image" src="https://github.com/user-attachments/assets/d7a7ab43-009e-4b89-a555-f71ad6d53cec" />
 
- Machine Learning model integration
-
- Predictive analytics dashboards
-
- Auto feature engineering
-
- Cloud deployment (AWS / IBM Cloud)
-
- Downloadable insight reports (PDF)
- ## References:
- 
- Software engineering / modelling: “Object-modeling technique (OMT)” —
-Wikipedia: https://en.wikipedia.org/wiki/Object-modeling_technique (Wikipedia)
+### DISTRIBUTIONS :
 
 
-●Victor K.F., Michael I.Z., “Intelligent data analysis and machine learning: Are they really equivalent concepts?,” in the 2017 Second Russia and Pacific Conference on Computer Technology and Applications (RPC), 2017, pp. 59-
-63. https://www.proceedings.com/content/037/037218webtoc.pdf (Proceedings)
+<img width="613" height="614" alt="image" src="https://github.com/user-attachments/assets/c560aa8d-e5ba-4bfe-95be-b6d7facba805" />
 
 
-●Uppala Sai Sudeep, Kandra Narasimha Naidu, Pulagam Sai Girish, Tatineni Naga Nikesh, Ch Sunanda. “Brain Tumor Classification using a Support Vector Machine.” International Journal of Computer Applications, vol. 184, no. 28 (Sep 2022), pp. 15-17. DOI:10.5120/ijca2022922347. Available at: https://ijcaonline.org/archives/volume184/number28/32492-2022922347/ (ijcaonline.org)
+## IMPROVEMENTS OVER EXISISTING WEBSITES :
+
+| **Aspect**         | **Existing Websites**  | **Data Sculptor**                   |
+| ------------------ | ---------------------- | ----------------------------------- |
+| Ease of Use        | Requires coding skills | No coding required                  |
+| Preprocessing      | Mostly manual          | Fully automated                     |
+| Insight Generation | Limited analysis       | AI-driven insights                  |
+| Visualization      | Basic charts           | Clear visual dashboards             |
+| Workflow           | Multiple tools needed  | Single integrated platform          |
+| Security           | Minimal protection     | Data anonymization & access control |
+
+## CONCLUSION :
+
+In this project, Data Sculptor – AI Driven Preprocessing and Insight Extraction Tool successfully addresses the challenges of manual and complex data preprocessing.
+By automating data cleaning, transformation, and insight extraction, the system reduces human effort and improves analytical accuracy. 
+Its AI-driven approach, user-friendly web interface, and modular architecture make data analytics accessible to both technical and non-technical users. 
+Overall, Data Sculptor provides an efficient, scalable, and reliable solution for transforming raw data into meaningful insights and supports informed decision-making across various application domains.
+
+## WEBSITE : https://data-sculptorgit-xrou23exga6gqqnvwvvvrd.streamlit.app/
+
+
+
